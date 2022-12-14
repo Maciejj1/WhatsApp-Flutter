@@ -4,7 +4,7 @@ import 'package:untitled/common/extension/custom_theme_extension.dart';
 import 'package:untitled/common/utils/coloor.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({super.key,this.controller, this.hintText, this.readOnly, this.textAlign, this.keyboardType, this.prefixText, required this.onTap, this.suffixIcon, this.onChanged});
+  const CustomTextField({this.controller, this.hintText, this.readOnly, this.textAlign, this.keyboardType, this.prefixText, required this.onTap, this.suffixIcon, this.onChanged, this.fontSize, this.autoFocus});
 
   final TextEditingController? controller;
   final String? hintText;
@@ -15,6 +15,8 @@ class CustomTextField extends StatelessWidget {
   final VoidCallback onTap;
   final Widget? suffixIcon;
   final Function(String)? onChanged;
+  final double? fontSize;
+  final bool? autoFocus;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +27,8 @@ class CustomTextField extends StatelessWidget {
       textAlign: textAlign ?? TextAlign.center,
       keyboardType: readOnly == null ? keyboardType : null ,
       onChanged: onChanged,
+      style: TextStyle(fontSize: fontSize),
+      autofocus: autoFocus ?? false,
       decoration: InputDecoration(
         isDense: true,
         prefixText: prefixText,
